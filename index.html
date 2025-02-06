@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Super Secret Invite</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: pink;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .login-container {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-container input {
+      margin: 10px;
+      padding: 10px;
+      width: 200px;
+      border: 1px solid pink;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      padding: 10px 20px;
+      background-color: pink;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-container button:hover {
+      background-color: lightpink;
+    }
+
+    .heart {
+      background-color: red;
+      display: inline-block;
+      height: 30px;
+      margin: 0 10px;
+      position: relative;
+      transform: rotate(-45deg);
+      width: 30px;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: "";
+      background-color: red;
+      border-radius: 50%;
+      height: 30px;
+      position: absolute;
+      width: 30px;
+    }
+
+    .heart:before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart:after {
+      left: 15px;
+      top: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.3) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    .big-heart {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-top: 20px;
+    }
+
+    .big-heart h1 {
+      color: white;
+      font-size: 22px;
+      text-align: center;
+      padding: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .minecraft-heart {
+      position: absolute;
+      width: 80px;
+      height: auto;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .minecraft-heart:nth-child(1) { top: 5%; left: 5%; }
+    .minecraft-heart:nth-child(2) { top: 15%; right: 10%; }
+    .minecraft-heart:nth-child(3) { top: 25%; left: 20%; }
+    .minecraft-heart:nth-child(4) { top: 35%; right: 15%; }
+    .minecraft-heart:nth-child(5) { bottom: 15%; left: 30%; }
+    .minecraft-heart:nth-child(6) { bottom: 10%; right: 35%; }
+    .minecraft-heart:nth-child(7) { top: 50%; left: 70%; }
+    .minecraft-heart:nth-child(8) { bottom: 50%; right: 5%; }
+    .minecraft-heart:nth-child(9) { top: 60%; left: 10%; }
+    .minecraft-heart:nth-child(10) { bottom: 20%; right: 25%; }
+    .minecraft-heart:nth-child(11) { top: 70%; left: 40%; }
+    .minecraft-heart:nth-child(12) { bottom: 30%; right: 50%; }
+
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Google Slides Button */
+    .slides-btn {
+      display: none; /* Hidden until login */
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: pink;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .slides-btn:hover {
+      background-color: lightpink;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="login-container" id="loginContainer">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+  </div>
+
+    <div class="container" id="heartContainer">
+    <!-- Floating Minecraft heart images using your GitHub image URL -->
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+    <img src="https://raw.githubusercontent.com/Sutanie/The-Lima-Project/refs/heads/main/Minecraft%20Hearts.png" class="minecraft-heart" alt="Minecraft Heart">
+  </div>
+
+
+    <!-- Big Heart with the message -->
+     <div class="big-heart" id="bigHeart">
+      <div class="heart"></div>
+      <h1>Super Secret Invite</h1>
+      <a id="slidesButton" href="https://docs.google.com/presentation/d/1uke6t_NiKEJIt9Sz9abROoOvDqKwt1xQLOFO_zWDBO0/edit?usp=sharing" target="_blank" class="slides-btn">
+        View Your Special Surprise
+      </a>
+    </div>
+  </div>
+
+  <!-- SoundCloud embedded player, hidden with CSS -->
+  <iframe class="soundcloud" width="0" height="0" scrolling="no" frameborder="no" allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1136361535&color=%23ff5500&auto_play=true">
+  </iframe>
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === "Lima" && password === "EdwardIsTheGoat") {
+        document.getElementById('loginContainer').style.display = 'none';
+        document.getElementById('heartContainer').style.display = 'flex';
+        document.getElementById('bigHeart').style.display = 'flex';
+        document.getElementById('slidesButton').style.display = 'inline-block'; // Show button
+        document.querySelector('.soundcloud').style.display = 'block';
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    }
+
+    document.getElementById('heartContainer').style.display = 'none';
+  </script>
+</body>
+</html>
